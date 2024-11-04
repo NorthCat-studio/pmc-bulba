@@ -1,0 +1,129 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: ('1.png') ;
+    background-size: cover;
+    color: white;
+    
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
+
+
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    position: relative;
+    display: inline-block;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+header h1:hover .fireworks {
+    display: block;
+    animation: fireworks-animation 1s forwards;
+}
+
+header h1:hover .potato {
+    display: block;
+    animation: potato-animation 1s forwards;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #2600ff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-left: 10px;
+}
+
+.btn:hover {
+    background-color: #fbff008c;
+    transform: scale(1.05);
+}
+
+.auth {
+    margin-top: 50px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+    opacity: 0;
+}
+
+.auth.open {
+    max-height: 5000px; /* Вказано максимальну висоту, щоб показати весь контент */
+    opacity: 1;
+}
+
+form {
+    margin: 20px 0;
+}
+
+input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+}
+
+button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    border: none;
+    background-color: #3341ffbd;
+    color: rgb(255, 230, 0);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #001aff98;
+}
+
+.fireworks, .potato {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes fireworks-animation {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+@keyframes potato-animation {
+    0% { top: 0; opacity: 0; }
+    50% { top: 50px; opacity: 1; }
+    100% { top: 100px; opacity: 0; }
+}
