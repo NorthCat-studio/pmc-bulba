@@ -1,68 +1,116 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: ('1.png') ;
-    background-size: cover;
-    color: white;
-    
+    background: linear-gradient(45deg, #b36b00, #c16c0a, #d4820d, #f2a103);
+    background-size: 200% 200%;
+    color: rgb(255, 255, 255);
+    text-align: center;
     margin: 0;
     padding: 0;
+    animation: backgroundAnimation 10s infinite alternate;
 }
 
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
 
+/* Закрепленное меню навигации сверху */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    z-index: 10;
+}
 
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+}
 
-
-
-
+nav a:hover {
+    color: #ffd700;
+}
 
 header {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+    padding: 80px 20px 20px; /* Дополнительное пространство сверху, чтобы меню не закрывало текст */
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
 }
 
 header h1 {
     margin: 0;
     font-size: 3em;
-    position: relative;
-    display: inline-block;
-    transition: all 0.5s ease;
     cursor: pointer;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    transition: all 0.5s ease;
 }
 
-header h1:hover .fireworks {
-    display: block;
-    animation: fireworks-animation 1s forwards;
-}
-
+header h1:hover .fireworks,
 header h1:hover .potato {
     display: block;
-    animation: potato-animation 1s forwards;
+    animation: explosion 1s forwards, potato-drop 1s forwards;
 }
 
-nav {
-    display: flex;
-    align-items: center;
+.fireworks, .potato {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.btn {
+@keyframes explosion {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1.2); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+@keyframes potato-drop {
+    0% { top: 0; opacity: 0; }
+    50% { top: 50px; opacity: 1; }
+    100% { top: 100px; opacity: 0; }
+}
+
+.btn {  
     display: inline-block;
-    padding: 15px 30px;
-    font-size: 1.2em;
-    color: white;
-    background-color: #2600ff;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background: linear-gradient(45deg, red, orange, yellow, green, blue, purple);
+    background-size: 300% 300%;
     border: none;
     border-radius: 5px;
     text-decoration: none;
-    transition: background-color 0.3s, transform 0.3s;
-    margin-left: 10px;
+    transition: transform 0.3s;
+    animation: gradientAnimation 5s infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .btn:hover {
-    background-color: #fbff008c;
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(10deg);
+    box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
+}
+
+.section-image {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
 }
 
 .auth {
@@ -74,7 +122,7 @@ nav {
 }
 
 .auth.open {
-    max-height: 5000px; /* Вказано максимальну висоту, щоб показати весь контент */
+    max-height: 500px;
     opacity: 1;
 }
 
@@ -98,28 +146,133 @@ button {
     font-size: 1em;
     border-radius: 5px;
     border: none;
-    background-color: #3341ffbd;
-    color: rgb(255, 230, 0);
+    background: linear-gradient(45deg, #3341ff, #ff4b5c, #ff9c33);
+    color: rgb(255, 255, 255);
     cursor: pointer;
-    transition: background-color 0.3s;
+    animation: gradientAnimation 5s infinite;
+    transition: transform 0.3s;
 }
 
 button:hover {
-    background-color: #001aff98;
+    transform: scale(1.1);
 }
 
-.fireworks, .potato {
-    display: none;
-    position: absolute;
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #b36b00, #c16c0a, #d4820d, #f2a103);
+    background-size: 200% 200%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    position: fixed;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    width: 100%;
+    z-index: 10;
 }
 
-@keyframes fireworks-animation {
-    0% { opacity: 0; transform: scale(0); }
-    50% { opacity: 1; transform: scale(1.2); }
-    100% { opacity: 0; transform: scale(1); }
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: #ffd700;
+}
+
+.content {
+    margin-top: 80px; /* Чтобы текст не закрывался меню */
+    padding: 20px;
+    font-size: 1.5em;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #b36b00, #c16c0a, #d4820d, #f2a103);
+    background-size: 200% 200%;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    animation: backgroundAnimation 10s infinite alternate;
+}
+
+@keyframes backgroundAnimation {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.nav-item {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 5px 10px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    color: #ffd700;
+}
+
+.content {
+    margin-top: 80px; /* Чтобы текст не закрывался меню */
+    padding: 20px;
+    font-size: 1.5em;
+    transition: opacity 0.5s ease-in-out;
 }
 
 @keyframes potato-animation {
