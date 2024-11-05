@@ -76,3 +76,23 @@ function login() {
         alert('Invalid username or password');
     }
 }
+
+// Находим все элементы навигационного меню с классом nav-item
+const navItems = document.querySelectorAll('.nav-item');
+
+// Находим элемент с текстом для отображения контента
+const contentText = document.getElementById('content-text');
+
+// Добавляем обработчики событий для каждого элемента навигации
+navItems.forEach(item => {
+    item.addEventListener('mouseover', () => {
+        // При наведении изменяем текст в контейнере
+        contentText.textContent = item.getAttribute('data-text');
+        contentText.style.opacity = '0.8';
+    });
+    item.addEventListener('mouseleave', () => {
+        // При уходе курсора восстанавливаем основной текст
+        contentText.style.opacity = '1';
+    });
+});
+
