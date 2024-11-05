@@ -1,32 +1,49 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PMC BULBA</title>
     <link rel="icon" href="90.png" type="image/x-icon">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PMC BULBA</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            font-family: 'Patrick Hand', cursive;
+            font-size: 4em;
+            color: #333;
+        }
+    </style>
 </head>
-<body background="1.png">
+<body>
+
+    <div class="video-bg">
+        <video src="190.mp4" type="video/mp4" autoplay muted loop></video>
+        <div class="effects"></div>
+        <div class="video-bg__content">
+           <h1>PMC BULBA</h1>
+        </div>
+    </div>
+
     <header>
-        <h1 id="title">PMC BULBA</h1>
         <nav>
-            <a href="https://www.youtube.com/@MIC-ael20" target="_blank" class="btn">Watch Youtube</a>
+            <a href="#" class="btn" id="home-tab">Home</a>
+           
+            <a href="https://t.me/PMCBULBA" target="_blank" class="btn">Join Telegram</a>
             <a href="https://discord.gg/TGrfsHG6" target="_blank" class="btn">Join Discord</a>
             <a href="#" id="register-btn" class="btn">Register</a>
             <a href="#" id="login-btn" class="btn">Login</a>
         </nav>
     </header>
+
     <main>
+        <section id="home-section">
+            <p class="animated-text">Explore our features and join our community!</p>
+            <img src="path-to-your-home-image.jpg" alt="" class="section-image">
+        </section>
+
         <section class="auth" id="register-section" style="display:none;">
-            <h2></h2>
+            <h2>Register</h2>
             <form id="register-form">
                 <input type="text" id="username" placeholder="Username" required>
                 <input type="password" id="password" placeholder="Password" required>
@@ -34,7 +51,7 @@
             </form>
         </section>
         <section class="auth" id="login-section" style="display:none;">
-            <h2></h2>
+            <h2>Login</h2>
             <form id="login-form">
                 <input type="text" id="login-username" placeholder="Username" required>
                 <input type="password" id="login-password" placeholder="Password" required>
@@ -42,8 +59,12 @@
             </form>
         </section>
     </main>
+
+    <div class="content">
+        <p id="content-text">Welcome to PMC BULBA</p>
+    </div>
+
     <script src="script.js"></script>
 
-    <center><h1 style="color: rgba(230, 209, 22, 0.24);">Привет зарегестрируйся на сайте и присойденись в ДС</h1></center>
 </body>
 </html>
